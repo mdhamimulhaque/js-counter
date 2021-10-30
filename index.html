@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        .counter-box{
+            padding: 20px;
+           margin-top: 150px;
+           border-radius: 15px;
+           color:#fff;
+           background-color:indigo;
+           font-family: 'Poppins', sans-serif;
+        }
+        button{
+            margin-top:10px;
+        }
+        #count-Value{
+            font-size:80px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3"></div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="counter-box">
+                    <div class="value-box text-center">
+                        <h1>Counter App</h1>
+                        <span id="count-Value">00</span>
+                    </div>
+                    <div class="button-box text-center m-lg--2">
+                        <button id="subtract" class="btn btn-danger">&#8595; Subtract</button>
+                        <button id="refresh" class="btn btn-primary">Refresh</button>
+                        <button id="add" class="btn btn-success">Add &#8593;</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3"></div>
+        </div>
+    </div>
+    
+    <script>
+        const count = document.getElementById("count-Value");
+        const subtract = document.getElementById("subtract");
+        const refresh = document.getElementById("refresh");
+        const add = document.getElementById("add");
+       
+        let value = 0;
+
+        //add value
+        add.addEventListener("click",()=>{
+            value ++;
+            count.innerHTML = value;
+
+            if(value > 0){
+            count.style.color="green";
+            }
+        });
+
+        //subtract value
+        subtract.addEventListener("click",()=>{
+            value --;
+            count.innerHTML = value;
+
+            if(value < 0){
+            count.style.color="red";
+            }
+            
+        });
+        
+        //refresh value
+        refresh.addEventListener("click",()=>{
+            value = "";
+            count.innerHTML = "00";
+            count.style.color="#fff";
+        });
+
+    </script>
+</body>
+</html>
